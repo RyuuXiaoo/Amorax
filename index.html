@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <title>Ryuu Xiao</title>
+    <meta content="RyuuXiao menyediakan Aplikasi Premium Murah Pake Banget" name="description">
+    <meta content="apikey, bot whatsapp, rest api, vps, panel, RyuuXiao" name="keywords">
+       <meta property="og:title" content="Xiao Store">
+    <meta property="og:description" content="Dapatkan aplikasi premium murah dengan mudah!">
+    <meta property="og:image" content="https://files.catbox.moe/s0ijxt.jpg">
+    <meta property="og:url" content="https://www.ryuushop.web.id">
+    <meta property="og:type" content="website">
+ <link href="https://cdn.elxyzgpt.xyz/file/2wus6ZW91B.png" rel="icon">
+    <link href="https://cdn.elxyzgpt.xyz/file/2wus6ZW91B.png" rel="apple-touch-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://api.zeeoneofc.my.id/aos/aos.css" rel="stylesheet">
+    <link href="https://api.zeeoneofc.my.id/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://api.zeeoneofc.my.id/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://api.zeeoneofc.my.id/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="https://api.zeeoneofc.my.id/remixicon/remixicon.css" rel="stylesheet">
+    <link href="https://api.zeeoneofc.my.id/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="https://api.zeeoneofc.my.id/css/style.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://files.catbox.moe/s0ijxt.jpg">
+  </head>
+  <body>
+.row {
+  display: flex;
+}
+
+/*Style Teks Berjalan*/
+marquee {
+  color: #ff000a;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 1000;
+  padding: 4px;
+ 
+}
+
+/*Informasi Terbaru*/
+.info {
+  font-size: 13px;
+  font-weight: bold;
+  color: #000000;
+  font-family: arial;
+  box-shadow: 0px 5px 1px 0px #000000;
+  border-radi20s: 0px;
+  padding: 1px;
+  background:#000;
+  width: 15%;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right:8px;
+  margin-top: 5px;
+}
+
+.text {
+  text-align:justify;
+  color:rgb(0, 0, 255);
+  border-bottom: #000; solid 0.5px;
+  padding-bottom: 10px;
+  padding-left:5px;
+  padding-right:5px;
+  font-family: helvetica;
+  font-size: 13px;
+  line-height:20px;
+  margin-bottom: 20px;
+}
+
+.text1 {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+  font-family: arial;
+  box-shadow: 0px 5px 1px 0px #000000;  
+  border-ra20ius: 0px;
+  padding: 5px;
+  background: #000000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right:8px;
+}
+
+/*Style Banner*/
+img{
+border-radius: 15px;
+}
+
+.slideshow-container {
+  position: relative;
+  margin-top: 0px;
+}
+
+/*Style Titik Tiga bawah Banner*/
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 0px;
+  background-color: #000;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  position: relative;
+  margin-top: 0px;
+  margin-bottom: 4px;
+}
+
+.active {
+  background-color: #000;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 0.5s;
+  animation-name: fade;
+  animation-duration: 0.5s;
+}
+
+@keyframes fade {
+  from {opacity: .5} 
+  to {opacity: 1}
+}
+
+/*Style Icon*/
+.button {
+  padding: 5px 5px 0px 5px;
+  font-size: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none #CCCCFF;
+  color: #000000;
+  background-color: #CCCCFF;
+  border: none;
+  border-radius: 5px;
+  width: 19%;
+  margin: 7px;
+  box-shadow: 0px 0px 5px 1px #000;
+  font-weight: bold;
+}
+
+.image {
+  border-radius: 5px;
+  width: 100%;
+}
+
+.dropdown {
+  font-size: 10px;
+  text-decoration: none;
+  outline: none;
+  color: #E6E6FA;
+  border: none;
+  border-radius: 15px;
+  width: 19%;
+  font-weight: bold;
+  display: inline;
+}
+ 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  box-shadow: 0px 0px 5px 1px #000000;
+  z-index: 1;
+  width: auto;
+  background: #000;
+  border-radius: 10px;
+  margin-top: 23%;
+  margin-left: -11px;
+  margin-right: 6.5px;
+}
+.dropdown-content{
+  display: none;
+  position: absolute;
+  box-shadow: 0px 0px 5px 1px #000000);
+  z-index: 1;
+  width: auto;
+  background: #CCCCFF;
+  border-radius: 10px;
+  margin-top: 27.5%;
+
+}
+
+
+.button:hover {background-color: #E6E6FA;color: rgb(0, 0, 255)}
+.image:hover {shadow: #CCCCFF}
+
+.button:active {
+  background-color: #DA70D6;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.mybutton{
+  box-shadow: 0px 0px 5px 1px #000000);  
+  margin-top: 10px;
+  margin: 4px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  width: auto;
+  margin-bottom: 10px; 
+}  
+
+.tittle {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+  font-family: arial;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  padding: 5px;
+  background: #E6E6FA;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right:8px;
+}
+
+.subtittle {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+  font-family: arial;
+  border-radius: 20px;
+  padding: 5px;
+  background: #CCCCFF;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right:8px;
+}
+
+.tooltip a {
+  cursor: none;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  max-width: 90%;
+  text-align: center;
+  border-radius: 0px;
+  position: absolute;
+  display: block;
+  z-index: 1;
+  left: 5%;
+  margin-top: 10px;
+  margin-left: 0px;
+  
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  
+}
+
+.label {
+    background-color: #CCCCFF;
+border-radius:100px;
+	cursor:pointer;
+	color: #000000;
+    font-size: 13px;
+    font-family: arial;
+	text-decoration:none;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+    font-weight: bold;
+    padding: 4px;
+    width: 50px;
+    margin-top: -20px;
+}
+
+.label:hover {background-color: #CCCCFF;color: #E6E6FA}
+
+.imgtool {
+margin-left: 10px;
+box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.4);
+padding-left: 0px;
+padding-right:0px;
+}
+
+.img1 {
+  flex: auto;
+  margin-right:10px;
+  margin-left:10px;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  border-radius: 15px;
+  padding-top: 5px;
+  width: 10%;
+}
+
+.img2 {
+  flex: auto;
+  width: 30%;
+}
+
+.flashsale {
+  text-align: center;
+  box-shadow: 0px 0px 5px 1px #000000;
+  border: #000 solid 3px;
+  font-size: 12px;
+  margin-top: 10px;
+  background: #DA70D6;
+  color: #000;
+  border-radius: 20px;
+  width: 50%;
+  padding-bottom: 2px;
+  padding-top: 3px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.sidenav {
+  height: 100%;
+  width: 0%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+  overflow-x: hidden;
+  transition: 0.5s;
+  border-radius: 20px;
+  margin-left: 0px;
+  box-shadow: 0px 0px 5px 1px #E6E6FA;  
+}
+
+.sidenav a {
+  padding: 0px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #CCCCFF;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #DA70D6;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: #E6E6FA;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}}
+
+<style></style>
+<!doctype html> <html> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> 
+<style type="text/css"> 
+body{ 
+   padding:0px; margin:0px;
+				 }
+	
+#atas{
+	background:#E6E6FA; 
+	margin-bottom:15px; 
+ padding:20px; 
+ padding-left:40px; https://agenpulsamurahbrebes.bukaolshop.site/kategori/i-236108-bottom-left-radius:40px; border-bottom-right-radius:40px; box-shadow:-2px -2px 8px black, 2px 2px 8px black; 
+ }
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Perbaikan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 70%;
+            max-width: 360px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 3px solid black;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-wrapper img {
+            width: 100%;
+            flex-shrink: 0;
+            height: auto;
+            user-select: none;
+        }
+
+        .slider-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 450px;
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        .slider-button {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+        }
+
+        .marquee {
+            width: 100%;
+            background-color: lavender;
+            color: black;
+            padding: 10px 0;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 15px;
+            border: 2px solid black;
+        }
+
+        /* Tombol di pojok kanan bawah (Mode Gelap/Terang) */
+        .dark-mode-btn {
+            position: fixed;
+            right: 15px;
+            bottom: 15px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .dark-mode-btn img {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <div class="slider-wrapper" id="slider">
+            <img src="https://files.catbox.moe/ogqhnh.jpg" alt="Gambar 1">
+            <img src="https://files.catbox.moe/pwf1m2.jpg" alt="Gambar 2">
+            <img src="https://files.catbox.moe/ogqhnh.jpg" alt="Gambar 3">
+        </div>
+    </div>
+
+    <div class="slider-buttons">
+        <button class="slider-button prev" onclick="prevSlide()">&#10094;</button>
+        <button class="slider-button next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <marquee class="marquee">
+        Selamat Datang Di Amora Market Ready Aplikasi Premium Dan Lain² 🤩🤩!
+    </marquee>
+
+    <!-- Tombol Mode Gelap/Terang -->
+    <button class="dark-mode-btn" onclick="toggleDarkMode()">
+        <img id="mode-icon" src="https://files.catbox.moe/9revab.png" alt="Mode">
+    </button>
+
+    <script>
+        let index = 0;
+        const slider = document.getElementById('slider');
+        const slides = document.querySelectorAll(".slider-wrapper img");
+        const totalSlides = slides.length;
+        const modeIcon = document.getElementById("mode-icon");
+
+        function showSlide() {
+            let translateX = -index * 100;
+            slider.style.transform = `translateX(${translateX}%)`;
+        }
+
+        function nextSlide() {
+            index = (index + 1) % totalSlides;
+            showSlide();
+        }
+
+        function prevSlide() {
+            index = (index - 1 + totalSlides) % totalSlides;
+            showSlide();
+        }
+
+        setInterval(nextSlide, 5000); // Auto slide setiap 5 detik
+
+        function toggleDarkMode() {
+            let body = document.body;
+            if (body.style.backgroundColor === "black") {
+                body.style.backgroundColor = "#fff";
+                body.style.color = "blue";
+                modeIcon.src = "https://files.catbox.moe/9revab.png"; // Matahari
+            } else {
+                body.style.backgroundColor = "black";
+                body.style.color = "white";
+                modeIcon.src = "https://cdn-icons-png.flaticon.com/512/831/831682.png"; // Bulan
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+ <html> 
+ 	<head> 
+ 	<style> 
+
+<!DOCTYPE html>
+ <html> 
+ 	<head> 
+ 	<style> 
+
+
+<style></style>
+</div>
+<!doctype html>
+
+
+</div>
+<!----Sip>
+
+<!--JAVA SCRIPT SLIDE-->
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 5000);
+}
+</script>
+<!----Sip>
+
+<!--Java Script Flash Sale by MADIKA PALU-->
+<script>
+// Pasang Waktu Tujuan (Akhir)
+var countDownDate = new Date("August 10, 2021 15:37:25").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+   
+  var distance = countDownDate - now;
+    
+  // Perhitungan waktu untuk Hari, Jam, Menit dan Detik
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Yang ditampilkan diberi ID bernama id="Madikapalu", kalau mau ganti, ganti semua yang bernama Madikapalu
+  document.getElementById("MADIKAPALU").innerHTML = days + " Hari | " + hours + " Jam | "
+  + minutes + " m | " + seconds + " s ";
+    document.getElementById("MADIKAPALU").style.fontWeight = "bold";
+    
+  // Teks Ketika Hitungan Habis
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("Madikapalu").innerHTML = "HABIS";
+  }
+}, 1000);
+
+
+</script>
+<!----Sip--->
+
+
+<!--JAVA SCRIPT POP UP LAINNYA-->
+<script>
+function openNav() {
+  document.getElementById("lainlain").style.width = "100%";
+}
+function closeNav() {
+  document.getElementById("lainlain").style.width = "0";
+}
+</script>
+<!---Sip--->
+
+
+<!--JAVA SCRIPT POP UP INFORMASI-->
+<script>
+function bukanav() {
+  document.getElementById("info").style.width = "100%";
+}
+function tutupnav() {
+  document.getElementById("info").style.width = "0";
+}
+</script>
+<!---Sip--->
+
+
+<!--JAVA SCRIPT JAM-->
+<script>
+setInterval(myTimer, 1000);   
+function myTimer() {
+  const d = new Date();
+  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+  document.getElementById("demo").style.fontWeight = "bold";
+}
+</script>
+<!---Sip-->
+
+<script>
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+  
+    </span>
+    </center>
+</div></div></div></div>
+<!----Sip--->               
+    
+<!---KOTAK 1--->
+<!---BARIS 1--->
+<center>
+<center><p class="subtittle">List Produk Pilih Sesuai Kebutuhan Mu</center>
+<div class="mybutton">
+<div class="dropdown">
+
+</div></div>
+
+<!---BAGIAN INTERNET--->
+<div class="dropdown">
+<button class="button">
+<img class="image" src="https://files.catbox.moe/nkte6v.jpg">Customer Service</button>
+
+<div class="dropdown-content">
+<center><p class="tittle">Customer Service</p>
+<center>
+<button class="button"><a href="index-sc.html"><img class="image" src="https://files.catbox.moe/nkte6v.jpg"></a>Customer Service</button></div></div>
+
+
+<!---BAGIAN INTERNET---><div class="dropdown">
+<button class="button">
+<img class="image" src="https://img1.pixhost.to/images/5963/603245165_imgtmp.jpg">Panel Pyterodactyl</button>
+
+<div class="dropdown-content">
+<center><p class="tittle">Panel Pyterodactyl</p>
+<center>
+<button class="button"><a href="Hosting/digitalocean.html"><img class="image" src="https://img1.pixhost.to/images/5963/603245165_imgtmp.jpg"></a>Customer Service</button></div></div>
+
+<!---BAGIAN INTERNET--->
+<div class="dropdown">
+<button class="button">
+<img class="image" src="https://files.catbox.moe/zibohq.jpg">Vps Digital Ocean</button>
+
+<div class="dropdown-content">
+<center><p class="tittle">Digital Ocean</p>
+<center>
+<button class="button"><a href="Hosting/digitalocean.html"><img class="image" src="https://files.catbox.moe/zibohq.jpg"></a>Vps Digital Ocean</button></div></div>
+</div></div>
+
+
+<!---BAGIAN INTERNET--->
+
+
+<!--PROMO-->
+       <div class="dropdown">
+<button class="button"><a href="https://chat.whatsapp.com/Hu8K9P0gvlCBVOUjYzIWms"><img class="image" src="https://img1.pixhost.to/images/5963/603245218_imgtmp.jpg"></a>TopUp Gamess</button>
+
+<div class="dropdown">
+<button class="button"><a onclick="openNav()"><img class="image" src="https://files.catbox.moe/ptf0a2.jpg"></a>Aplikasi Premium</button></div>
+
+
+<!--LAIN-LAIN-->
+<div id="lainlain" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><b>&times;</b></a>
+<br>
+<br>
+<center><p class="subtittle">Aplikasi Premiums Murah Pake Banget🤩</p></center>
+<center>
+<button class="button"><a href="Premium/alightmotion.html"><img class="image" src="https://files.catbox.moe/3v9hsy.jpg"></a>Alight Motion</button>
+<button class="button"><a href="Premium/amazon.html"><img class="image" src="https://files.catbox.moe/pwk6lh.png"></a>Amazon</button>
+<button class="button"><a href="Premium/applemusic.html"><img class="image" src="https://files.catbox.moe/0g1d8e.png"></a>Apple Music</button>
+<button class="button"><a href="Premium/bstation.html"><img class="image" src="https://files.catbox.moe/q3ggpe.jpeg"></a>Bstation</button>
+<button class="button"><a href="Premium/canva.html"><img class="image" src="https://files.catbox.moe/eo5rqa.png"></a>Canva Pro</button>
+<button class="button"><a href="Premium/capcut.html"><img class="image" src="https://files.catbox.moe/5o1wuk.png"></a>Capcut </button>
+<button class="button"><a href="Premium/disney.html"><img class="image" src="https://files.catbox.moe/njbi80.jpeg"></a>Disney</button>
+<button class="button"><a href="Premium/getcontact.html"><img class="image" src="https://files.catbox.moe/eficzh.png"></a>Get contact</button>
+<button class="button"><a href="Premium/iqiyi.html"><img class="image" src="https://files.catbox.moe/a40arj.jpeg"></a>Iqiyi pro</button>
+<button class="button"><a href="Premium/netflix.html"><img class="image" src="https://files.catbox.moe/5b7oek.png"></a>Netflix</button>
+<button class="button"><a href="Premium/spotify.html"><img class="image" src="https://files.catbox.moe/c09t0r.png"></a>Spotify</button>
+<button class="button"><a href="Premium/vidio.html"><img class="image" src="https://files.catbox.moe/md6mhx.png"></a>Vidio</button>
+<button class="button"><a href="Premium/vision.html"><img class="image" src="https://files.catbox.moe/ocnshy.png"></a>Vision+</button>
+<button class="button"><a href="Premium/viu.html"><img class="image" src="https://files.catbox.moe/8zj18g.png"></a>Viu Premium</button>
+<button class="button"><a href="Premium/wibuku.html"><img class="image" src="https://files.catbox.moe/0efw0h.jpeg"></a>WibuKu</button>
+<button class="button"><a href="Premium/youtube.html"><img class="image" src="https://files.catbox.moe/k273su.png"></a>YouTube Pro</button>
+
+        <!-- terima kasih -->
+</center></div></div></div>
+
+
+    <center><p class="subtittle">Fitur Free Menarik</center>
+<!---BAGIAN INTERNET--->
+<div class="mybutton">
+<div class="dropdown">
+<button class="button"><img class="image" src="https://files.catbox.moe/yt6oix.jpg">Downloader Free</button>
+<div class="dropdown-content">
+<center><p class="tittle">Downloader</p>
+<center>
+<button class="button"><a href="Download/ttdl.html"><img class="image" src="https://files.catbox.moe/a23jdg.jpg"></a>TikTok Downloader</button>
+<button class="button"><a href="Download/igdl.html"><img class="image" src="https://files.catbox.moe/57kieb.png"></a>Instagram downloader </button>
+<button class="button"><a href="Download/ytdl.html"><img class="image" src="https://files.catbox.moe/d8hhwb.jpg"></a>YouTube Downloader</button>
+<button class="button"><a href="Download/Spotify/index.html"><img class="image" src="https://files.catbox.moe/b99cun.jpg"></a>Spotify Downloader</button>a</div></div>
+
+<!--PROMO-->
+       <div class="dropdown">
+<button class="button"><a href="Ai/ryuuu.html"><img class="image" src="https://files.catbox.moe/dg04yo.jpg"></a>Ryuuuu-Ai V.1</button></div></div>
+
+<style>
+
+.kotak{
+  box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.8);
+  border-radius: 20px;
+  background: #fff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+/*Informasi Terbaru*/
+.info {
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  font-family: arial;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  padding: 1px;
+  background: #000;
+  width: 13%;
+  text-align: center;
+  margin-left: 16px;
+  margin-top: 10px;
+   margin-bottom: 10px;
+}
+
+.text {
+  text-align:justify;
+  color: #000;
+  padding-left:16px;
+  padding-right:16px;
+  font-family: helvetica;
+  font-size: 13px;
+  line-height:20px;
+}
+
+
+/*GAME LAIN*/
+.collapsible {
+  color: #000;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.content {
+  max-height: 0;
+  text-align:left;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background: transparent;
+  border-radius: 20px;
+}
+
+.collapsible:after {
+  content: 'Lainnya';
+  color: #fff;
+  background: #000;
+}
+
+.active:after {
+  content: "Tutup";
+  color: #fff;
+text-shadow: 10px #fff;
+background-color: #000;
+padding: 2px;
+padding-left: 15px;
+padding-right: 15px;
+border-radius: 10px;
+}
+
+.collapsible:hover {
+  background-color: #000;color: #000;
+}
+
+</style>
+
+<!--INFORMASI-->
+<div class="kotak" style="margin-bottom:-4px;">
+<p class="info">Info</p>
+<p class="text">
+<b>Silahkan Join Group Kami Dengan Mengklik Lainnya</p>
+</div>
+
+<button class="collapsible" style="background: #000;color: #000;border: none; width: 90px;border-radius: 20px; padding: 5px;margin-bottom: 10px;position: absolute;margin-top: -125px;right: 15px;font-weight: bold;"></button>
+
+<div class="content">
+
+<div class="kotak" style="margin-top: 20px">
+<p class="info">Info</p>
+<p class="text">
+<b>1. </b>Jangan Lupa Join Group Kita Ya <a href = "https://chat.whatsapp.com/I8CZCf4EbqXFUGzKYcABEZ" ... attributes-list>KLIK DISINI</a> 
+
+</p>
+</div>
+<br>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+<br>
