@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+  <title>Ramaa GnnZ</title>
+  <link rel="apple-touch-icon" sizes="180x180" href=
+  "https://img101.pixhost.to/images/372/551795518_ramagnz.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href=
+  "https://img101.pixhost.to/images/372/551795518_ramagnz.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href=
+  "https://img101.pixhost.to/images/372/551795518_ramagnz.jpg">
+  <link rel="manifest" href=
+  "https://ralvinstore.my.id/favicon/site.webmanifest">
+  <link rel="mask-icon" href=
+  "https://ralvinstore.my.id/favicon/safari-pinned-tab.svg" color=
+  "#000000">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/boxicon.css">
+  <link rel="stylesheet" href="css/glightbox.css">
+  <link rel="stylesheet" href="css/remixicon.css">
+  <link href=
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+  rel="stylesheet" integrity=
+  "sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+  crossorigin="anonymous">
+  <link href="css/allmin.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.8/font-awesome-animation.min.css">
+  <link href=
+  "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  rel="stylesheet">
+  <link href="css/swipper.css" rel="stylesheet">
+  <link href="css/stylemin.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com"
+  crossorigin="">
+  <link href=
+  "https://fonts.googleapis.com/css2?family=Sigmar&amp;display=swap"
+  rel="stylesheet">
+  <style>
+
+            /* Popup Overlay */
+  .popup-overlay {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+  }
+
+  /* Popup Card */
+  .popup-card {
+        margin-top: 10vh;
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .popup-body {
+    margin-top: 20px;
+  }
+
+  /* Deskripsi Scrollable */
+  #popup-desc {
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #EAEAEA;
+    border-radius: 5px;
+    white-space: pre-wrap;
+  }
+
+  @media screen and (max-width: 768px) {
+    .popup-card {
+        width: 95%;
+    }
+  }
+
+            .popup-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .popup-header h3 {
+                margin: 0;
+                font-size: 24px;
+            }
+
+            .close-popup {
+                background: transparent;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            .popup-body {
+                margin-top: 20px;
+            }
+
+            .popup-images {
+                display: flex;
+                gap: 10px;
+                overflow-x: auto;
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+
+            .popup-img {
+                max-width: 400px;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+
+            .popup-prev,
+            .popup-next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+                font-size: 18px;
+                border-radius: 50%;
+            }
+
+            .popup-prev {
+                left: 10px;
+            }
+
+            .popup-next {
+                right: 10px;
+            }
+
+            /* Show popup */
+            .popup-overlay.show {
+                visibility: visible;
+                opacity: 1;
+                transition: opacity 0.3s ease, visibility 0s;
+            }
+
+            .popup-buttons {
+                display: flex;
+                gap: 20px;
+                justify-content: left;
+                margin-top: 20px;
+            }
+
+            .popup-buttons button {
+                padding: 10px 20px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                background-color: #63E6BE;
+                color: white;
+                transition: background-color 0.3s ease;
+            }
+
+            .popup-buttons button:hover {
+                background-color: #63E6BE;
+            }
+
+            /* Card List Style */
+            .card-list {
+                display: flex;
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 30px;
+            }
+
+            .box {
+                width: 200px;
+                background-color: lightgray;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 18px;
+                padding: 10px;
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .box img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                border-radius: 8px;
+                margin-bottom: 10px;
+            }
+
+            .box:hover {
+                transform: translateY(-5px);
+            }
+
+            .product-title {
+                font-size: 16px;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .product-price {
+                color: green;
+                font-size: 14px;
+            }
+
+            /* Buy and Test Buttons */
+            .product-buttons {
+                display: flex;
+                gap: 10px;
+                margin-top: 10px;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .product-buttons button {
+                padding: 8px 16px;
+                font-size: 14px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                background-color: #63E6BE;
+                color: white;
+                transition: background-color 0.3s ease;
+            }
+
+            .product-buttons button:hover {
+                background-color: #63E6BE;
+            }
+
+            /* Responsive Layout */
+            @media screen and (max-width: 768px) {
+                .box {
+                    width: 45%;
+                }
+            }
+
+            @media screen and (max-width: 480px) {
+                .box {
+                    width: 100%;
+                }
+            }
+  </style>
+</head>
+<body>
+  <!-- Popup Card -->
+  <div id="popup" class="popup-overlay hidden">
+    <center>
+      <div class="popup-card">
+        <div class="popup-header">
+          <h3>Detail Produk</h3><button class="close-popup"
+          onclick="closePopup()">✖️</button>
+        </div>
+        <div class="popup-body">
+          <div class="popup-images" id="popup-images"></div>
+          <h4 id="popup-title"></h4>
+          <p id="popup-price"></p>
+          <p id="popup-desc"></p>
+        </div><button class="popup-prev" onclick=
+        "changeImage(-1)">&lt;</button> <button class="popup-next"
+        onclick="changeImage(1)">&gt;</button>
+        <div class="popup-buttons">
+          <button class="popup-buttons" onclick=
+          "buyProduct()">Buy</button>
+        </div>
+      </div>
+    </center>
+  </div>
+  <div class="wrapper">
+    <nav>
+      <div class="container-flex">
+        <div class="brand">
+          <a href=""></a>
+        </div>
+        <ul>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html"><span>🔙
+            </span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Pricing</h2>
+        <div class="section-title" data-aos="fade-up">
+          <p>SCRIPT BOT</p>
+        </div>
+        <div class="card-list">
+          <div class="box" onclick=
+          "showPopup('SC BOT TOPUP FULL BUTTON', 'Rp 75.000', `- Intergasi order kouta\n- Topup bisa tanpa deposit maupun menggunakan deposit\n- Sistem all otomatis\n- full button support semua WhatsApp\n- Payment gateway\n- include image data Topu\n- include fitur store\n- sistem sudah dirancang sedemikian rupa\n- ada grup khusus pengguna script ini`, ['https://img86.pixhost.to/images/398/561390569_ramagnz.jpg', 'https://img86.pixhost.to/images/398/561391532_ramagnz.jpg', 'https://img86.pixhost.to/images/398/561391937_ramagnz.jpg'])"
+          data-aos="zoom-in" data-aos-delay="200">
+            <img src=
+            "https://img86.pixhost.to/images/376/560983258_ramagnz.jpg"
+            alt="SC BOT TOPUP FULL BUTTON">
+            <div class="product-title">
+              SC BOT TOPUP FULL BUTTON. (PROVIDER ORDER KOUTA)
+            </div>
+            <div class="product-price">
+              Rp 75.000
+            </div>
+            <div class="product-buttons">
+              <button onclick="testProduct()">Cek Disini</button>
+              <button onclick=
+              "openYouTube('https://youtu.be/1silEQLjbiM')">Rivew
+              Sc</button>
+            </div>
+          </div>
+          <div class="box" onclick=
+          "showPopup('SC BOT AUTO ORDER PRODUK', 'Rp 59.000', `- Payment gateway\n- Integrasi Order kuota\n- Add produk\n- Add stok\n- Rekap semua transaksi\n- Order otomatis PG\n- Tampilan keren dan simpel\n- Bisa dibuat jualan akun premium dan sebagainya\n- Dilengkapi dengan fitur store V7`, ['https://img12.pixhost.to/images/633/572225271_ramagnz.jpg', 'https://img12.pixhost.to/images/633/572225272_ramagnz.jpg', 'https://img12.pixhost.to/images/633/572225274_ramagnz.jpg', 'https://img12.pixhost.to/images/633/572225276_ramagnz.jpg', 'https://img12.pixhost.to/images/633/572225321_ramagnz.jpg'])"
+          data-aos="zoom-in" data-aos-delay="200">
+            <img src=
+            "https://img12.pixhost.to/images/633/572225083_ramagnz.jpg"
+            alt="SC BOT AUTO ORDER PRODUK">
+            <div class="product-title">
+              SC BOT AUTO ORDER PRODUK
+            </div>
+            <div class="product-price">
+              Rp 59.000
+            </div>
+            <div class="product-buttons">
+              <button onclick="testProduct()">Cek Disini</button>
+              <button onclick=
+              "openYouTube('https://youtu.be/fd0mKcbvr_Y')">Rivew
+              Sc</button>
+            </div>
+          </div>
+          <div class="box" onclick=
+          "showPopup('SC BOT TOPUP FULL BUTTON', 'Rp 59.000', `- Topup otomatis\n- Deposit otomatis\n- Full button support semua WA\n- Setting keuntungan\n- Full fitur topup\n- Game, PLN, Pulsa, Kouta &amp; E-wallet\n- Full tutorial sampai 100% bisa digunakan\n- Plus fitur store\n- Bisa jualan dengan mudah\n- provider (Atlantic )`, ['https://img86.pixhost.to/images/451/562382765_ramagnz.jpg', 'https://img86.pixhost.to/images/451/562382901_ramagnz.jpg', 'https://img86.pixhost.to/images/451/562383282_ramagnz.jpg', 'https://img86.pixhost.to/images/451/562383456_ramagnz.jpg'])"
+          data-aos="zoom-in" data-aos-delay="200">
+            <img src=
+            "https://img86.pixhost.to/images/376/560983932_ramagnz.jpg"
+            alt="SC BOT TOPUP FULL BUTTON">
+            <div class="product-title">
+              SC BOT TOPUP FULL BUTTON. (PROVIDER ATLANTIC)
+            </div>
+            <div class="product-price">
+              Rp 59.000
+            </div>
+            <div class="product-buttons">
+              <button onclick="testProduct()">Cek Disini</button>
+              <button onclick=
+              "openYouTube('https://youtu.be/CPkAdl6uLjc')">Rivew
+              Sc</button>
+            </div>
+          </div>
+          <div class="box" onclick=
+          "showPopup('SC BOT TOPUP NO BUTTON', 'Rp 39.000', `- Topup otomatis\n- Setting keuntungan\n- Full fitur topup\n- No enc 100%\n- Game, PLN, Pulsa, Kouta &amp; E-wallet\n- Full tutorial sampai 100% bisa digunakan\n- Plus fitur store\n- Bisa jualan dengan mudah\n- provider (Order Kouta)`, ['https://img86.pixhost.to/images/470/562734877_ramagnz.jpg', 'https://img86.pixhost.to/images/470/562734951_ramagnz.jpg', 'https://img86.pixhost.to/images/470/562735045_ramagnz.jpg'])"
+          data-aos="zoom-in" data-aos-delay="100">
+            <img src=
+            "https://img86.pixhost.to/images/376/560983214_ramagnz.jpg"
+            alt="SC BOT TOPUP NO BUTTON">
+            <div class="product-title">
+              SC BOT TOPUP NO BUTTON. (PROVIDER ORDER KOUTA)
+            </div>
+            <div class="product-price">
+              Rp 39.000
+            </div>
+            <div class="product-buttons">
+              <button onclick="testProduct()">Cek Disini</button>
+              <button onclick=
+              "openYouTube('https://youtu.be/xBDaFEIkpUY')">Rivew
+              Sc</button>
+            </div>
+          </div>
+          <div class="box" onclick=
+          "showPopup('SC BOT CREATE PANEL AUTO ORDER', 'Rp 39.000', `-Payment gateway\n-Intergasi order kouta\n-Panel auto Expired jika sudah 1 bulan\n- Full fitur create panel\n- No enc 100%\n- Plus fitur store\n- Pengajaran sampai bisa digunakan\n- Order Panel Otomatis lagsung muncul pembayaran`, ['https://img12.pixhost.to/images/627/572143187_ramagnz.jpg', 'https://img12.pixhost.to/images/627/572143831_ramagnz.jpg'])"
+          data-aos="zoom-in" data-aos-delay="100">
+            <img src=
+            "https://img12.pixhost.to/images/627/572143186_ramagnz.jpg"
+            alt="SC BOT CREATE PANEL AUTO ORDER">
+            <div class="product-title">
+              SC BOT CREATE PANEL AUTO ORDER
+            </div>
+            <div class="product-price">
+              Rp 39.000
+            </div>
+            <div class="product-buttons">
+              <button onclick="testProduct()">Cek Disini</button>
+              <button onclick=
+              "openYouTube('https://youtu.be/Mhr_bLuKGCc')">Rivew
+              Sc</button>
+            </div>
+          </div>
+          <div class="box" onclick=
+          "showPopup('SC BOT CREATE NOKOS', 'Rp 39.000', `- All apk\n- No enc 100%\n- Harga nokos sangat murah\n- Bisa dijual kembali\n- Redy nokos negara luar\n- Full tutorial sampai 100% bisa digunakan\n- Plus fitur store\n- Provider Virtusim`, ['https://img86.pixhost.to/images/470/562737565_ramagnz.jpg', 'https://img86.pixhost.to/images/470/562737645_ramagnz.jpg', 'https://img86.pixhost.to/images/470/562737735_ramagnz.jpg', 'https://img86.pixhost.to/images/470/562737806_ramagnz.jpg'])"
+          data-aos="zoom-in" data-aos-delay="100">
+            <img src=
+            "https://img86.pixhost.to/images/397/561379562_ramagnz.jpg"
+            alt="SC BOT CREATE NOKOS">
+            <div class="product-title">
+              SC BOT CREATE NOKOS
+            </div>
+            <div class="product-price">
+              Rp 39.000
+            </div>
+            <div class="product-buttons">
+              <button onclick="testProduct()">Cek Disini</button>
+              <button onclick=
+              "openYouTube('https://youtu.be/oEZtTcLW2a8')">Rivew
+              Sc</button>
+            </div>
+          </div>
+          <div class="box" onclick=
+          "showPopup('SC BOT STORE V7 NO ENC', 'Rp 19.000', `- Fitur store lengkap.\n- No enc 100%\n- Setproses &amp; Setdone\n- Addlist &amp; Addproduk Support image\n- Addtesti\n- Fitur group\n- Cek nickname MM &amp; FF\n- Tampilan simpel dan keren\n- 100% all fitur work`, ['https://remove.bg/example13.jpg', 'https://remove.bg/example14.jpg', 'https://remove.bg/example15.jpg', 'https://remove.bg/example16.jpg'])"
+          data-aos="zoom-in" data-aos-delay="100">
+            <img src=
+            "https://img86.pixhost.to/images/376/560970805_ramagnz.jpg"
+            alt="SC BOT STORE V7 NO ENC">
+            <div class="product-title">
+              SC BOT STORE V7 NO ENC
+            </div>
+            <div class="product-price">
+              Rp 19.000
+            </div>
+            <div class="product-buttons">
+              <button onclick="testProduct()">Cek Disini</button>
+              <button onclick=
+              "openYouTube('https://youtu.be/qFOSpI-Eq4o')">Rivew
+              Sc</button>
+            </div>
+          </div>
+          <div class="box" onclick=
+          "showPopup('SC BOT CREATE PANEL', 'Rp 19.000', `- Full fitur create panel\n- No enc 100%\n- Plus fitur store\n- Pengajaran sampai bisa digunakan\n- Fitur deposit\n- Bisa jualan panel\n- Bisa open reseller panel\n- Balik modal secara cepat`, ['https://remove.bg/example17.jpg', 'https://remove.bg/example18.jpg', 'https://remove.bg/example19.jpg', 'https://remove.bg/example20.jpg'])"
+          data-aos="zoom-in" data-aos-delay="100">
+            <img src=
+            "https://img86.pixhost.to/images/397/561379051_ramagnz.jpg"
+            alt="SC BOT CREATE PANEL">
+            <div class="product-title">
+              SC BOT CREATE PANEL
+            </div>
+            <div class="product-price">
+              Rp 19.000
+            </div>
+            <div class="product-buttons">
+              <button onclick="testProduct()">Cek Disini</button>
+              <button onclick=
+              "openYouTube('https://youtu.be/IgK568sq8pg')">Rivew
+              Sc</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>PREMIUM SCRIPT</h2>
+          <div class="section-title" data-aos="fade-up">
+            <p>SCRIPT GABUNGAN</p>
+          </div>
+          <div class="box" onclick=
+          "showPopup('SC BOT TOPUP FULL BUTTON (ORKUT) × SC BOT AUTO ORDER', 'Rp 95.000', `FITUR GABUNGAN ANTARA 2 SC UNGGULAN YAITU SC BOT TOPUP FULL BUTTON ORKUT DAN SC BOT AUTO ORDER PRODUK`, ['https://img12.pixhost.to/images/647/572401799_ramagnz.jpg'])"
+          data-aos="zoom-in" data-aos-delay="100">
+            <img src=
+            "https://img12.pixhost.to/images/647/572401799_ramagnz.jpg"
+            alt=
+            "SC BOT TOPUP FULL BUTTON (ORKUT) × SC BOT AUTO ORDER">
+            <div class="product-title">
+              SC BOT TOPUP FULL BUTTON (ORKUT) × SC BOT AUTO ORDER
+            </div>
+            <div class="product-price">
+              Rp 95.000
+            </div>
+            <div class="product-buttons">
+              <button onclick="testProduct()">Cek Disini</button>
+            </div>
+          </div>
+          <script>
+            let currentImageIndex = 0;
+            let imageArray = [];
+
+            function showPopup(title, price, desc, images) {
+          imageArray = images;
+          currentImageIndex = 0;
+          updatePopup();
+
+          document.getElementById('popup').classList.remove('hidden');
+          document.getElementById('popup').classList.add('show');
+          document.getElementById('popup-title').textContent = title;
+          document.getElementById('popup-price').textContent = price;
+          // Gantikan \n dengan <br>
+          document.getElementById('popup-desc').innerHTML = desc.replace(/\n/g, '<br>');
+          }
+
+          function openYouTube(linkNy) {
+          window.open(linkNy, "_blank");
+          }
+            function closePopup() {
+                document.getElementById('popup').classList.remove('show');
+            }
+
+            function changeImage(direction) {
+                currentImageIndex += direction;
+
+                if (currentImageIndex < 0) {
+                    currentImageIndex = imageArray.length - 1;
+                }
+
+                if (currentImageIndex >= imageArray.length) {
+                    currentImageIndex = 0;
+                }
+
+                updatePopup();
+            }
+
+            function updatePopup() {
+                const popupImagesContainer = document.getElementById('popup-images');
+                popupImagesContainer.innerHTML = '';
+
+                const imgElement = document.createElement('img');
+                imgElement.src = imageArray[currentImageIndex];
+                imgElement.alt = 'Product Feature Image';
+                imgElement.classList.add('popup-img');
+                popupImagesContainer.appendChild(imgElement);
+            }
+
+            function buyProduct() {
+                window.location.href = 'https://wa.me/6285791220179';
+                closePopup();
+            }
+
+            function testProduct() {
+                
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>Ramaa GnnZ</h3>
+              <p class="pb-3"></p>
+              <p>Penyedia layanan Bot WhatsApp<br>
+              sejak tahun 2021<br>
+              Social media cek dibawah<br></p>
+              <div class="social-links mt-3">
+                <a href=
+                "https://youtube.com/@ramaagnnz?si=1OC8Dfy_PcKDdItb"
+                class="twitter"></a> <a href=
+                "https://wa.me/6285791220179" class="facebook"></a>
+                <a href="https://sociabuzz.com/ramaagnnz" class=
+                "linkedin"></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li>
+                <a href="#index.html">Home</a>
+              </li>
+              <li>
+                <a href="#pricing">Pricing</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>CATATAN</h4>
+            <p>SCRIPT YANG SAYA JUAL DI ATAS ADALAH ORIGINAL DARI
+            HASIL SAYA NGODING. JADI JIKALAU TERJADI EROR PADA
+            SCRIPT, SAYA BISA MENANGANI NYA</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copyright">
+        © Copyright <strong><span>Ramaa GnnZ</span></strong>. All
+        Rights Reserved
+      </div>
+    </div>
+  </footer><a href="#" class=
+  "back-to-top d-flex align-items-center justify-content-center"></a>
+  <div id="preloader"></div>
+  <script src=
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+  integrity=
+  "sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+  crossorigin="anonymous"></script> 
+  <script data-cfasync="false" src=
+  "https://api.zeeoneofc.my.id/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  
+  <script src="js/vanilla.js"></script> 
+  <script src="js/aos.js"></script> 
+  <script src="js/bundle.js"></script> 
+  <script src="js/glightbox.min.js"></script> 
+  <script src=
+  "https://api.zeeoneofc.my.id/swiper/swiper-bundle.min.js"></script>
+  
+  <script src=
+  "https://api.zeeoneofc.my.id/js/main.min.js"></script> 
+  <script src="https://kit.fontawesome.com/32db8fe470.js"
+  crossorigin="anonymous"></script>
+</body>
+</html>
