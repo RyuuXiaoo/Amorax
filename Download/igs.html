@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instagram Stalk</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      min-height: 100vh;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 2.5em;
+      font-weight: bold;
+      text-shadow: 0 0 5px #fff, 0 0 10px #fcb045, 0 0 15px #833ab4;
+      margin-bottom: 30px;
+    }
+
+    input, button {
+      padding: 12px;
+      width: 300px;
+      border: none;
+      border-radius: 8px;
+      margin: 5px 0;
+      font-size: 1em;
+    }
+
+    input {
+      outline: none;
+    }
+
+    button {
+      background: #111;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    .card {
+      background: #fff;
+      color: #000;
+      border-radius: 10px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      padding: 20px;
+      margin-top: 25px;
+      text-align: center;
+      max-width: 350px;
+    }
+
+    img {
+      border-radius: 50%;
+      max-width: 120px;
+      margin-bottom: 15px;
+    }
+
+    a {
+      color: #fd1d1d;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Instagram Stalk</h1>
+  <input type="text" id="username" placeholder="Masukkan username Instagram..." />
+  <button onclick="getInstagramData()">Cek Profil</button>
+
+  <div class="card" id="result" style="display: none;"></div>
+
+  <script>
+    async function getInstagramData() {
+      const username = document.getElementById('username').value.trim();
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'none';
+
+      if (!username) {
+        alert("Masukkan username Instagram!");
+        return;
+      }
+
+      resultDiv.innerHTML = 'Loading...';
+      resultDiv.style.display = 'block';
+
+      try {
+        const url = `https://api.alvianuxio.eu.org/api/instagram/stalk?search=${encodeURIComponent(username)}&apikey=au-TMIQYF4L`;
+        const res = await fetch(url);
+        const json = await res.json();
+        const user = json?.data?.response;
+
+        if (!user?.username) {
+          resultDiv.innerHTML = 'Data tidak ditemukan!';
+          return;
+        }
+
+        resultDiv.innerHTML = `
+          <img src="${user.profileUrl}" alt="Avatar">
+          <h2>@${user.username}</h2>
+          <p><strong>Nama:</strong> ${user.nickname || '-'}</p>
+          <p><strong>Bio:</strong> ${user.bio || '-'}</p>
+          <p><strong>Followers:</strong> ${user.followers}</p>
+          <p><strong>Following:</strong> ${user.following}</p>
+          <p><strong>Posts:</strong> ${user.posts}</p>
+          <hr>
+          <a href="${user.profile}" target="_blank">Lihat Profil Instagram</a>
+        `;
+      } catch (e) {
+        resultDiv.innerHTML = 'Gagal mengambil data. Username salah atau API error.';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Downloader</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 500px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .input-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .btn-gradient {
+            padding: 10px;
+            border: none;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .btn-gradient:hover {
+            opacity: 0.8;
+        }
+        .btn-back {
+            background: linear-gradient(45deg, #fcb045, #fd1d1d);
+        }
+        .video-container {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        video {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .footer {
+            margin-top: 50px;
+            padding: 15px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        .title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .title img {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+            <h1>Instagram Downloader</h1>
+        </div>
+        <p>Download video atau audio dari Instagram dengan mudah!</p>
+
+        <div class="input-box">
+            <input type="text" id="videoUrl" placeholder="Masukkan URL Instagram">
+            <button class="btn-gradient" onclick="downloadVideo()">
+                <i class="fas fa-video"></i> Download Video
+            </button>
+            <button class="btn-gradient" onclick="downloadAudio()">
+                <i class="fas fa-music"></i> Download Audio
+<button class="btn-gradient btn-back" onclick="location.href='../index.html';">
+    <i class="fas fa-arrow-left"></i> Kembali
+</button>
+   
+        <div id="loading" style="display: none; margin: 20px auto;">
+            <p style="color: white;">Sedang memproses...</p>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <div class="container footer">
+        <h4>Thanks To</h4>
+        <p>1. <a href="https://wa.me/6285143569870" target="_blank">Ryuu</a> : Penyedia Domain</p>
+        <p>2. <a href="https://wa.me/6285143569870" target="_blank">Alfath</a> : Penyedia Web Utama</p>
+        <p>3. <a href="https://whatsapp.com/channel/0029Vat4lwpKLaHoS0MAwj3Z" target="_blank">Rerez</a> : Penyedia API Downloader</p>
+        <p>© RyuuXiao Download Instagram 2025</p>
+    </div>
+
+    <script>
+        async function downloadVideo() {
+            const videoUrl = document.getElementById('videoUrl').value.trim();
+            const resultDiv = document.getElementById('result');
+            const loading = document.getElementById('loading');
+
+            resultDiv.innerHTML = '';
+            loading.style.display = 'block';
+
+            if (!videoUrl) {
+                loading.style.display = 'none';
+                resultDiv.innerHTML = '<p style="color: red;">Silakan masukkan URL video Instagram.</p>';
+                return;
+            }
+
+            try {
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                const response = await axios.get(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://api.im-rerezz.xyz/api/dl/instagram?url=${encodeURIComponent(videoUrl)}`)}`);
+                const data = JSON.parse(response.data.contents);
+
+                if (data.status && Array.isArray(data.data)) {
+                    let videoLink = null;
+
+                    for (const item of data.data) {
+                        if (item.title === "Download Video") {
+                            videoLink = item.url;
+                            break;
+                        }
+                    }
+
+                    if (videoLink) {
+                        resultDiv.innerHTML = `
+                            <div class="video-container">
+                                <video controls src="${videoLink}"></video>
+                                <a href="${videoLink}" download="instagram-video.mp4">
+                                    <button class="btn-gradient"><i class="fas fa-download"></i> Download Video</button>
+                                </a>
+                            </div>
+                        `;
+                    } else {
+                        resultDiv.innerHTML = '<p style="color: red;">Tidak ada video yang ditemukan.</p>';
+                    }
+                } else {
+                    resultDiv.innerHTML = `<p style="color: red;">Gagal mengunduh video. ${data.message || 'URL tidak valid.'}</p>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p style="color: red;">Terjadi kesalahan: ${error.message || 'Coba lagi nanti.'}</p>`;
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        async function downloadAudio() {
+            alert("Fitur download audio masih dalam pengembangan!");
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>

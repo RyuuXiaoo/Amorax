@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Downloader</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff0000, #ff6600);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .input-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            margin: auto;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .media-container {
+            margin-top: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        video, audio {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        .btn-contact {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn-contact:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1><i class="fab fa-youtube"></i> YouTube Downloader</h1>
+        <p>Download Video atau Audio dari YouTube dengan mudah!</p>
+
+        <div class="input-box">
+            <input type="text" id="youtubeUrl" placeholder="Masukkan URL YouTube">
+            <select id="formatSelect">
+                <option value="video">Download Video</option>
+                <option value="audio">Download Audio</option>
+            </select>
+            <button class="btn btn-success mt-3" onclick="downloadYouTube()">
+                <i class="fas fa-download"></i> Download
+            </button>
+        </div>
+
+        <div id="result" class="mt-4"></div>
+    </div>
+
+    <!-- Tombol Kembali & Contact Owner -->
+    <div class="container mt-4">
+        <a href="../index.html" target="_blank" class="btn-contact">
+            <i class="fas fa-phone"></i>Back
+        </a>
+    </div>
+
+    <!-- Tambahan Teks di Bawah -->
+    <div class="container footer">
+        <h4>TERIMA KASIH</h4>
+        <p>SENANG MELAYANI ANDA, JANGAN LUPA MAMPIR LAGI YA KAK!</p>
+        <p>© 2025 YouTube Downloader | Designed by <b>Ryuu Xiao</b></p>
+    </div>
+
+    <script>
+        async function downloadYouTube() {
+            let url = document.getElementById("youtubeUrl").value;
+            let format = document.getElementById("formatSelect").value;
+
+            if (!url) {
+                alert("Masukkan URL YouTube terlebih dahulu!");
+                return;
+            }
+
+            try {
+                let apiUrl = `https://api.hiuraa.my.id/downloader/yt?url=${encodeURIComponent(url)}`;
+                
+                let response = await fetch(apiUrl, { mode: 'cors' });
+
+                if (!response.ok) {
+                    throw new Error(`Server mengembalikan status: ${response.status}`);
+                }
+
+                let data = await response.json();
+
+                if (data && data.result) {
+                    let mediaUrl = format === "video" ? data.result.video : data.result.audio;
+
+                    if (!mediaUrl) {
+                        throw new Error("Media tidak ditemukan! Mungkin URL tidak valid.");
+                    }
+
+                    let content = format === "video" 
+                        ? `<video controls src="${mediaUrl}"></video>` 
+                        : `<audio controls src="${mediaUrl}"></audio>`;
+
+                    document.getElementById("result").innerHTML = `
+                        <div class="media-container">
+                            <h3>Media dari YouTube</h3>
+                            ${content}
+                            <a href="${mediaUrl}" download>
+                                <button class="btn btn-primary mt-3">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </a>
+                        </div>
+                    `;
+                } else {
+                    alert("Gagal mendapatkan media. Pastikan URL valid.");
+                }
+            } catch (error) {
+                alert("Terjadi kesalahan: " + error.message);
+                console.error(error);
+
+                // Jika API gagal, coba alternatif lain
+                document.getElementById("result").innerHTML = `
+                    <div class="alert alert-danger">
+                        <h4>Gagal menghubungi API</h4>
+                        <p>Silakan coba lagi nanti atau gunakan layanan alternatif berikut:</p>
+                        <a href="https://yt1s.com/" target="_blank" class="btn btn-warning">
+                            <i class="fas fa-external-link-alt"></i> Coba Alternatif
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>
